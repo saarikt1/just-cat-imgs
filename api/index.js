@@ -32,12 +32,12 @@ const unsplash = new Unsplash({
 app.get("/", (req, res) => {
   unsplash.photos
     .getRandomPhoto({ query: "cat" })
+    .catch((err) => {
+      console.log("ERROR:", err);
+    })
     .then(toJson)
     .then((json) => {
       res.send(json);
-    })
-    .catch((err) => {
-      console.log("ERROR:", err);
     });
 });
 
