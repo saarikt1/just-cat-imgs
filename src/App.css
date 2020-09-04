@@ -1,6 +1,19 @@
 .container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  height: 100vh;
+}
+
+#credit {
+  text-align: center;
+  color: #333333;
+  padding-bottom: 10px;
+}
+
+#credit a {
+  text-decoration: underline;
+  color: #444444;
 }
 
 img {
