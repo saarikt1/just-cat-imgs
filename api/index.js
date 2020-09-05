@@ -11,6 +11,7 @@ const toJson = require("unsplash-js").toJson;
 const cors = require("cors");
 app.use(cors());
 app.use(morgan("dev"));
+app.use(express.static("build"));
 
 app.use((error, req, res, next) => {
   console.log("Error status: ", error.status);
@@ -29,7 +30,7 @@ const unsplash = new Unsplash({
   accessKey: process.env.ACCESS_KEY,
 });
 
-app.get("/", (req, res) => {
+app.get("/api/image", (req, res) => {
   unsplash.photos
     .getRandomPhoto({ query: "cat" })
     .catch((err) => {
